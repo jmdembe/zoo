@@ -31,6 +31,10 @@
         return new RedPanda(name, 2016);
     }
 
+    RedPanda.climb = function climb(text) {
+      return 'Oh no, the panda just climbed away!';
+    };
+
     /**
      * Creates a new cheetah
      * @param {[type]} name [description]
@@ -41,16 +45,25 @@
     Cheetah.prototype = Object.create(Animal.prototype);
     Cheetah.prototype.constructor = Cheetah;
 
+    Cheetah.prototype.birth = function birth(name) {
+        return new Cheetah(name, 2016);
+    }
+
+    Cheetah.run = function run(speed) {}
+
     // RedPanda.prototype.birthday = function birthday() {
     //
     // }
     var exhibit1 = new Animal('Fluffy', 1990);
     var ogPanda = new RedPanda('Fluffy', 2001, true);
-    ogPanda.birth('Red');
-    var babyCheetah= new Cheetah('Spots', 2007, false);
+    var ogCheetah= new Cheetah('Spots', 2007, false);
+    var babyPanda= ogPanda.birth('Red');
+    var babyCheetah = ogCheetah.birth('Prints');
 
     console.log(exhibit1);
     console.log(ogPanda);
+    console.log(ogCheetah);
     console.log(babyCheetah);
+    console.log(babyPanda);
 
 }());
