@@ -18,28 +18,39 @@
 
     /**
      * Creates a new red panda
-     * @param {[type]} name [description]
+     * @param {String} name [description]
+     * @param {Number} dob
      */
     function RedPanda(name, dob) {
         Animal.apply(this, [name, dob]);
+    }
+    RedPanda.prototype = Object.create(Animal.prototype);
+    RedPanda.prototype.constructor = RedPanda;
+
+    RedPanda.prototype.birth = function birth(name) {
+        return new RedPanda(name, 2016);
     }
 
     /**
      * Creates a new cheetah
      * @param {[type]} name [description]
      */
-    function Cheetah(name) {
+    function Cheetah(name, dob) {
         Animal.apply(this, [name, dob]);
     }
-
-    RedPanda.prototype = Object.create(Animal.prototype);
     Cheetah.prototype = Object.create(Animal.prototype);
-
-    RedPanda.prototype.constructor = RedPanda;
     Cheetah.prototype.constructor = Cheetah;
 
-    var exhibit1 = new Animal('Fluffy', 5);
-    var babyPanda = new RedPanda('Fluffy');
+    // RedPanda.prototype.birthday = function birthday() {
+    //
+    // }
+    var exhibit1 = new Animal('Fluffy', 1990);
+    var ogPanda = new RedPanda('Fluffy', 2001, true);
+    ogPanda.birth('Red');
+    var babyCheetah= new Cheetah('Spots', 2007, false);
 
+    console.log(exhibit1);
+    console.log(ogPanda);
+    console.log(babyCheetah);
 
 }());
