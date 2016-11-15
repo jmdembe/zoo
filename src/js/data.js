@@ -49,7 +49,9 @@
         return new Cheetah(name, 2016);
     }
 
-    Cheetah.run = function run(speed) {}
+    Cheetah.run = function run(speed) {
+        return 'The cheetah is running at '+ speed +' miles per hour.'
+    }
 
     // RedPanda.prototype.birthday = function birthday() {
     //
@@ -65,5 +67,6 @@
     console.log(ogCheetah);
     console.log(babyCheetah);
     console.log(babyPanda);
+    console.log(cheetah);
 
 }());
