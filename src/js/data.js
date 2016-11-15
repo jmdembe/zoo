@@ -20,8 +20,8 @@
      * Creates a new red panda
      * @param {[type]} name [description]
      */
-    function RedPanda(name) {
-        this.name = name;
+    function RedPanda(name, dob) {
+        Animal.apply(this, [name, dob]);
     }
 
     /**
@@ -29,9 +29,15 @@
      * @param {[type]} name [description]
      */
     function Cheetah(name) {
-        this.name = name;
+        Animal.apply(this, [name, dob]);
     }
-    
+
+    RedPanda.prototype = Object.create(Animal.prototype);
+    Cheetah.prototype = Object.create(Animal.prototype);
+
+    RedPanda.prototype.constructor = RedPanda;
+    Cheetah.prototype.constructor = Cheetah;
+
     var exhibit1 = new Animal('Fluffy', 5);
     var babyPanda = new RedPanda('Fluffy');
 
