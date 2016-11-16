@@ -18,7 +18,7 @@
             expect(fluffy).to.be.an.instanceof(window.zoo.Animal);
         });
 
-        it('The name argument should be a string', function () {
+        it('The name argument should be a string', function (){
             var spots = new window.zoo.Animal('Spots', 2000);
             expect(spots.name).to.be.a('String');
         });
@@ -33,5 +33,16 @@
         it('Should be a function', function () {
             expect(window.zoo.RedPanda).to.be.a.('function');
         });
+
+        it ('Should create a new Red Panda once called', function () {
+            var tusa = new RedPanda('Tusa', 2015);
+            expect(tusa).to.be.an.instanceof(window.zoo.RedPanda);
+        });
+
+        it ('The name argument should be a string', function (){
+            var asa = new RedPanda('Asa', 2014);
+            expect(asa.name).to.be.a('String');
+        });
+        
     });
 }());
