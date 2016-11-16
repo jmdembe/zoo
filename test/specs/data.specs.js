@@ -27,22 +27,47 @@
             var ace = new window.zoo.Animal('Ace', 2008);
             expect(ace.dob).to.be.a('Number');
         });
+
+        it('Should throw an error if a string is not received', function (){
+            try {
+                window.zoo.Animal(0, 7);
+            } catch(e) {
+                expect(e).to.be.an('object');
+                expect(e).to.be.an.instanceof('TypeError');
+            }
+        })
     });
 
     describe ('Red Panda Constructor', function () {
         it('Should be a function', function () {
-            expect(window.zoo.RedPanda).to.be.a.('function');
+            expect(window.zoo.RedPanda).to.be.a('function');
         });
 
         it ('Should create a new Red Panda once called', function () {
-            var tusa = new RedPanda('Tusa', 2015);
+            var tusa = new window.zoo.RedPanda('Tusa', 2015);
             expect(tusa).to.be.an.instanceof(window.zoo.RedPanda);
         });
 
         it ('The name argument should be a string', function (){
-            var asa = new RedPanda('Asa', 2014);
+            var asa = new window.zoo.RedPanda('Asa', 2014);
             expect(asa.name).to.be.a('String');
         });
-        
+
+        it ('The dob argument should be a number', function () {
+            var red = new window.zoo.RedPanda('Red', 2013);
+            expect(red.dob).to.be.a('Number')
+        })
+
+        it ('The Red Panda should return a string after receiving text as an argument', function () {
+            var activity = window.zoo.climb;
+            expect(window.zoo.climb).to.be.a('String');
+        });
+
+    });
+
+    describe('Cheetah constructor', function () {
+        it ('Should take a number as an argument so that the cheetah can run', function () {
+          
+        })
     });
 }());

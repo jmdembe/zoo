@@ -4,6 +4,7 @@
     window.zoo = window.zoo || {};
     window.zoo.Animal = Animal;
     window.zoo.RedPanda = RedPanda;
+    window.zoo.climb = RedPanda.climb;
 
     /**
      * Creates a new animal constructor
@@ -11,8 +12,15 @@
      */
     function Animal(name, dob) {
         console.log('Which animal is this?', name);
+
+        if(typeof(dob)!=='number') {
+            var e = new TypeError('I need a number for date of birth!');
+            e.userMessage = 'OOPS!'
+            throw e;
+        }
         this.name = name || 'anon';
-        this.dob = dob;
+        this.dob = dob || 2016;
+
     }
 
     Animal.prototype.whatAmI = function whatAmI () {
@@ -31,11 +39,17 @@
     RedPanda.prototype.constructor = RedPanda;
 
     RedPanda.prototype.birth = function birth(name) {
-        return new RedPanda(name, 2016);
+        return new RedPanda(name);
     }
 
 
     RedPanda.climb = function climb(text) {
+
+      if (typeof(text)!=='string') {
+          var err = new TypeError('You need to say something for the Red Panda to do thing!');
+          err.userMessage = 'The Red Panda is not moving because you did not say anything';
+          throw err;
+      }
       return 'Oh no, the panda just climbed away!';
     };
 
@@ -51,7 +65,7 @@
     Cheetah.prototype.constructor = Cheetah;
 
     Cheetah.prototype.birth = function birth(name) {
-        return new Cheetah(name, 2016);
+        return new Cheetah(name);
     }
 
     /**
@@ -60,6 +74,12 @@
      * @return {String}  Returns a statement about how fast the cheetah is running
      */
     Cheetah.run = function run(speed) {
+        if(typeof(speed)!=='number') {
+            var oops = new TypeError('I did not get a speed for the cheetah');
+            oops.userMessage = 'Is the cheetah not moving or did you not give me any speed?'
+            throw oops;
+        }
+
         return 'The cheetah is running at '+ speed +' miles per hour.'
     }
 
@@ -71,12 +91,14 @@
     var ogCheetah= new Cheetah('Spots', 2007, false);
     var babyPanda= ogPanda.birth('Red');
     var babyCheetah = ogCheetah.birth('Prints');
+    var what = RedPanda.climb('hi!');
 
     console.log(exhibit1);
     console.log(ogPanda);
     console.log(ogCheetah);
     console.log(babyCheetah);
     console.log(babyPanda);
-    console.log(cheetah);
+    console.log(babyCheetah);
+    console.log(what);
 
 }());
