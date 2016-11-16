@@ -4,7 +4,6 @@
     window.zoo = window.zoo || {};
     window.zoo.Animal = Animal;
     window.zoo.RedPanda = RedPanda;
-    window.zoo.climb = RedPanda.climb;
 
     /**
      * Creates a new animal constructor
@@ -46,7 +45,7 @@
     RedPanda.climb = function climb(text) {
 
       if (typeof(text)!=='string') {
-          var err = new TypeError('You need to say something for the Red Panda to do thing!');
+          var err = new TypeError('You need to say something for the Red Panda to climb!');
           err.userMessage = 'The Red Panda is not moving because you did not say anything';
           throw err;
       }
