@@ -3,6 +3,7 @@
 
     window.zoo = window.zoo || {};
     window.zoo.Animal = Animal;
+    window.zoo.RedPanda = RedPanda;
 
     /**
      * Creates a new animal constructor
@@ -20,8 +21,8 @@
 
     /**
      * Creates a new red panda
-     * @param {String} name [description]
-     * @param {Number} dob
+     * @param {String} name This is the name of the Red Panda
+     * @param {Number} dob  This is when the Red Panda was born
      */
     function RedPanda(name, dob) {
         Animal.apply(this, [name, dob]);
@@ -40,7 +41,8 @@
 
     /**
      * Creates a new cheetah
-     * @param {String} name [Names the cheetah]
+     * @param {String} name Names the cheetah
+     * @param {Number} dob Provides the date of birth for the cheetah
      */
     function Cheetah(name, dob) {
         Animal.apply(this, [name, dob]);
@@ -52,6 +54,11 @@
         return new Cheetah(name, 2016);
     }
 
+    /**
+     * Function makes the cheetah run
+     * @param  {Number} speed details how fast the cheetah is running
+     * @return {String}  Returns a statement about how fast the cheetah is running
+     */
     Cheetah.run = function run(speed) {
         return 'The cheetah is running at '+ speed +' miles per hour.'
     }
