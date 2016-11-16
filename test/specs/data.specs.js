@@ -56,11 +56,15 @@
         it ('The dob argument should be a number', function () {
             var red = new window.zoo.RedPanda('Red', 2013);
             expect(red.dob).to.be.a('Number')
-        });
+        })
 
-        it ('The Red Panda should return a string after receiving text as an argument', function () {
-            var activity = window.zoo.RedPanda.climb();
-            expect(window.zoo.climb).to.be.a('String');
+        it ('The Red Panda should return a string as an argument', function () {
+            try {
+                window.zoo.RedPanda.climb(1);
+            } catch(err) {
+                expect(err).to.be.an.instanceof(Object);
+                expect(err).to.be.an.instanceof(TypeError);
+            }
         });
 
     });
