@@ -1,6 +1,8 @@
 (function() {
     'use strict';
 
+    window.zoo = window.zoo || {};
+    window.zoo.Animal = Animal;
 
     /**
      * Creates a new animal constructor
@@ -31,13 +33,14 @@
         return new RedPanda(name, 2016);
     }
 
+
     RedPanda.climb = function climb(text) {
       return 'Oh no, the panda just climbed away!';
     };
 
     /**
      * Creates a new cheetah
-     * @param {[type]} name [description]
+     * @param {String} name [Names the cheetah]
      */
     function Cheetah(name, dob) {
         Animal.apply(this, [name, dob]);
