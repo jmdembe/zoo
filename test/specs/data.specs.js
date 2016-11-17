@@ -78,5 +78,14 @@
                 expect(err).to.be.an.instanceof(TypeError);
             }
         })
+      it ('Should receive a name once a new cub is born', function () {
+          try {
+              window.zoo.Cheetah.birth(7);
+          }
+          catch(needName) {
+              expect(needName).to.be.an.instanceof(Object);
+              expect(needName).to.be.an.instanceof(TypeError);
+          }
+      })
     });
 }());
