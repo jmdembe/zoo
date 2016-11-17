@@ -10,7 +10,6 @@
      * @param {Object} species Constructs animals in the zoo
      */
     function Animal(name, dob) {
-        console.log('Which animal is this?', name);
 
         if(typeof(dob)!=='number') {
             var e = new TypeError('I need a number for date of birth!');
@@ -18,7 +17,7 @@
             throw e;
         }
         this.name = name || 'anon';
-        this.dob = dob || 2016;
+        this.dob = 2016;
 
     }
 
@@ -64,6 +63,11 @@
     Cheetah.prototype.constructor = Cheetah;
 
     Cheetah.prototype.birth = function birth(name) {
+        if(typeof(name)!=='string') {
+            var needName = new TypeError('HEY! The baby cheetah needs a name!');
+            needName.userMessage = 'The baby cheetah cub needs a name!';
+            throw needName;    
+        }
         return new Cheetah(name);
     }
 
@@ -75,7 +79,7 @@
     Cheetah.run = function run(speed) {
         if(typeof(speed)!=='number') {
             var oops = new TypeError('I did not get a speed for the cheetah');
-            oops.userMessage = 'Is the cheetah not moving or did you not give me any speed?'
+            oops.userMessage = 'Is the cheetah not moving or did you not give me a number?';
             throw oops;
         }
 
@@ -91,13 +95,5 @@
     var babyPanda= ogPanda.birth('Red');
     var babyCheetah = ogCheetah.birth('Prints');
     var what = RedPanda.climb('hi!');
-
-    console.log(exhibit1);
-    console.log(ogPanda);
-    console.log(ogCheetah);
-    console.log(babyCheetah);
-    console.log(babyPanda);
-    console.log(babyCheetah);
-    console.log(what);
 
 }());

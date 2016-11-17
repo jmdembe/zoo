@@ -71,7 +71,12 @@
 
     describe('Cheetah constructor', function () {
         it ('Should take a number as an argument so that the cheetah can run', function () {
-
+            try {
+                window.zoo.Cheetah.run('run')
+            } catch(oops) {
+                expect(err).to.be.an.instanceof(Object);
+                expect(err).to.be.an.instanceof(TypeError);
+            }
         })
     });
 }());
